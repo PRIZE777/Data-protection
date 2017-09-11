@@ -6,47 +6,26 @@
  * Time: 19:49
  */
 
-$lol = array(1,4,3,4,5,4);
+$alfavit = array('а','б','в','г','д','е','ё','ж','з','и','й','к','л','м','н','о','п','р','с','т','у','ф','х','ц','ч','ш','щ','ъ','ы','ь','э','ю','я');
+$alfavit1 = array();
+
+$lol = array('5' => '1', '3' => '2');
 
 
+foreach ($alfavit as $key => $value){
+    $b = $key;
+    $b = (integer)$b; // Переводим в int, так как кей нам возвращает string
+    $alfavit1[] = $b;
 
-foreach ($lol as $key => $value){
-    $a = $key."<br>";
-    $a = (integer)$a;
 }
 
 
 
-
-
-for ($a; $a<7; $a++){
-    $lol[]=1;
-}
-
-
-/*
-
-while ($a<7) {
-    $lol[]=1;
-    $a++;
-}
-
-*/
-/*
-
-if ($a < 7){
-    $lol[]=1;
-}
-
-else {
-   echo "Ты хуй!";
-}
-*/
 
 echo "<pre>";
 
 
-print_r($lol);
+print_r($alfavit1);
 
 echo "<pre>";
 

@@ -26,16 +26,45 @@ class shifrator {
             array_push(self::$rand_chislo1,$rand_chislo);
         }
 
+        self::$rand_chislo1 = array_unique(self::$rand_chislo1);
+        self::$rand_chislo1 = array_values(self::$rand_chislo1);
+
+        foreach (self::$rand_chislo1 as $key => $value){ // выбираем ключи
+            $a = $key."<br>";
+            $a = (integer)$a; // Переводим в int, так как кей нам возвращает string
+        }
+
+        for ($a; $a<6; $a++){  // добавляем в массив недостающие элементы
+            $rand_chislo = mt_rand(0,33);
+            array_push(self::$rand_chislo1,$rand_chislo);
+        }
+
+        self::$rand_chislo1=array_flip(self::$rand_chislo1);
 
 
 
 
-            echo "<pre>";
-            print_r(self::$rand_chislo1);
+            #echo "<pre>";
+            #print_r(self::$rand_chislo1);
+
+    }
+
+    public static function shiftalfavir() {
+        shifrator::randslovo();
+        foreach (self::$rand_chislo1 as $key => $value){ // выбираем ключи
+            $a = $key;
+            $a = (integer)$a; // Переводим в int, так как кей нам возвращает string
+        }
+        foreach (self::$alfavit as $key => $value){
+            $b = $key;
+            $b = (integer)$b; // Переводим в int, так как кей нам возвращает string
+        }
+
 
     }
 
 }
 
-shifrator::randslovo();
 
+
+shifrator::shiftalfavir();
