@@ -51,8 +51,8 @@ class analysis
         $lol = mb_strtolower($lol);
         $kek = preg_replace('/[^абвгдеёжзийклмнопрстуфхцчшщъыьэюя]/','',$lol); // убираем все лишние символы
         $text1 = preg_split('//u',$kek,-1,PREG_SPLIT_NO_EMPTY);
-        $lastkey =
-      #  echo self::$alfavit[14];
+        end($text1);
+        $last_key = key($text1);
 
        foreach ($text1 as $key => $value){
            switch ($value){
@@ -221,6 +221,47 @@ class analysis
                    break;
            }
        }
+
+       /*
+        * Подсчитываем частоту встречания букв
+        */
+       $count0=self::$count0 / $last_key;
+        $count1=self::$count1 / $last_key;
+        $count2=self::$count2 / $last_key;
+        $count3=self::$count3 / $last_key;
+        $count4=self::$count4 / $last_key;
+        $count5=self::$count5 / $last_key;
+        $count6=self::$count6 / $last_key;
+        $count7=self::$count7 / $last_key;
+        $count8=self::$count8 / $last_key;
+        $count9=self::$count9 / $last_key;
+        $count10=self::$count10 / $last_key;
+        $count11=self::$count11 / $last_key;
+        $count12=self::$count12 / $last_key;
+        $count13=self::$count13 / $last_key;
+        $count14=self::$count14 / $last_key;
+        $count15=self::$count15 / $last_key;
+        $count16=self::$count16 / $last_key;
+        $count17=self::$count17 / $last_key;
+        $count18=self::$count18 / $last_key;
+        $count19=self::$count19 / $last_key;
+        $count20=self::$count20 / $last_key;
+        $count21=self::$count21 / $last_key;
+        $count22=self::$count22 / $last_key;
+        $count23=self::$count23 / $last_key;
+        $count24=self::$count24 / $last_key;
+        $count25=self::$count25 / $last_key;
+        $count26=self::$count26 / $last_key;
+        $count27=self::$count27 / $last_key;
+        $count28=self::$count28 / $last_key;
+        $count29=self::$count29 / $last_key;
+        $count30=self::$count30 / $last_key;
+        $count31=self::$count31 / $last_key;
+        $count32=self::$count32 / $last_key;
+
+        $array_count = array();
+        array_push($array_count, $count0, $count1, $count2, $count3, $count4, $count5, $count6, $count7, $count8, $count9, $count10, $count11, $count12, $count13, $count14, $count15, $count16, $count17, $count18, $count19, $count20, $count21, $count22, $count23, $count24, $count25, $count26, $count27, $count28, $count29, $count30, $count31, $count32);
+        print_r($array_count);
 
     }
 
