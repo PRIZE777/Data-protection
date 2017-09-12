@@ -6,8 +6,6 @@
  * Time: 21:37
  */
 
-namespace shifrator;
-
 class shifrator
 {
     private static $alfavit = array('а','б','в','г','д','е','ё','ж','з','и','й','к','л','м','н','о','п','р','с','т','у','ф','х','ц','ч','ш','щ','ъ','ы','ь','э','ю','я');
@@ -24,7 +22,6 @@ class shifrator
         for ($i=0; $i<7; $i++){ // цикл для создания 7ми рандомных чисел
             $rand_chislo = mt_rand(0,33);
             array_push(self::$rand_chislo1,$rand_chislo);
-
         }
 
         self::$rand_chislo1 = array_unique(self::$rand_chislo1);
@@ -60,7 +57,6 @@ class shifrator
         self::$rand_alfavit=array_values(self::$rand_alfavit); // наш рандомный алфавит
 
         $allalfavit = array(self::$alfavit,self::$rand_alfavit); // создаем двумерный массив, чтобя связать два алфавита
-
         /*
          * Здесь будем приводить файл к нижнему регистру
          */

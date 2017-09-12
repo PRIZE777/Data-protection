@@ -1,7 +1,4 @@
 ﻿<?php
-
-use namespace shifrator;
-
-
+require 'shifrator.php';
 
 shifrator::shifrirovanie();
