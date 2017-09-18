@@ -49,7 +49,10 @@ class analysis
         $get  = mb_detect_encoding($t, array('utf-8', 'cp1251'));
         $lol = iconv($get,'UTF-8',$t);
         $lol = mb_strtolower($lol);
+        $lol = trim($lol);
+
         $kek = preg_replace('/[^абвгдеёжзийклмнопрстуфхцчшщъыьэюя]/','',$lol); // убираем все лишние символы
+        echo $kek;
         $text1 = preg_split('//u',$kek,-1,PREG_SPLIT_NO_EMPTY);
         end($text1);
         $last_key = key($text1);
@@ -225,6 +228,7 @@ class analysis
        /*
         * Подсчитываем частоту встречания букв
         */
+       /*
        $count0=self::$count0 / $last_key;
         $count1=self::$count1 / $last_key;
         $count2=self::$count2 / $last_key;
@@ -261,8 +265,10 @@ class analysis
 
         $array_count = array();
         array_push($array_count, $count0, $count1, $count2, $count3, $count4, $count5, $count6, $count7, $count8, $count9, $count10, $count11, $count12, $count13, $count14, $count15, $count16, $count17, $count18, $count19, $count20, $count21, $count22, $count23, $count24, $count25, $count26, $count27, $count28, $count29, $count30, $count31, $count32);
-        print_r($array_count);
-
+        $file_key = 'key.txt';
+        $data = serialize($array_count);      // PHP формат сохраняемого значения.
+        file_put_contents($file_key, $data);
+       */
     }
 
 }

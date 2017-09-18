@@ -1,0 +1,1 @@
+a:33:{i:0;d:NAN;i:1;d:NAN;i:2;d:NAN;i:3;d:NAN;i:4;d:NAN;i:5;d:NAN;i:6;d:NAN;i:7;d:NAN;i:8;d:NAN;i:9;d:NAN;i:10;d:NAN;i:11;d:NAN;i:12;d:NAN;i:13;d:NAN;i:14;d:NAN;i:15;d:NAN;i:16;d:NAN;i:17;d:NAN;i:18;d:NAN;i:19;d:NAN;i:20;d:NAN;i:21;d:NAN;i:22;d:NAN;i:23;d:NAN;i:24;d:NAN;i:25;d:NAN;i:26;d:NAN;i:27;d:NAN;i:28;d:NAN;i:29;d:NAN;i:30;d:NAN;i:31;d:NAN;i:32;d:NAN;}
