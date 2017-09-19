@@ -43,16 +43,15 @@ class analysis
     private static $count31=0;
     private static $count32=0;
 
+
     public static function analysator()
     {
-        $t = file_get_contents('text.txt');
+        $t = file_get_contents('test.txt');
         $get  = mb_detect_encoding($t, array('utf-8', 'cp1251'));
         $lol = iconv($get,'UTF-8',$t);
         $lol = mb_strtolower($lol);
-        $lol = trim($lol);
-
+        $lol = substr($lol,3);
         $kek = preg_replace('/[^абвгдеёжзийклмнопрстуфхцчшщъыьэюя]/','',$lol); // убираем все лишние символы
-        echo $kek;
         $text1 = preg_split('//u',$kek,-1,PREG_SPLIT_NO_EMPTY);
         end($text1);
         $last_key = key($text1);
@@ -228,7 +227,7 @@ class analysis
        /*
         * Подсчитываем частоту встречания букв
         */
-       /*
+
        $count0=self::$count0 / $last_key;
         $count1=self::$count1 / $last_key;
         $count2=self::$count2 / $last_key;
@@ -265,10 +264,76 @@ class analysis
 
         $array_count = array();
         array_push($array_count, $count0, $count1, $count2, $count3, $count4, $count5, $count6, $count7, $count8, $count9, $count10, $count11, $count12, $count13, $count14, $count15, $count16, $count17, $count18, $count19, $count20, $count21, $count22, $count23, $count24, $count25, $count26, $count27, $count28, $count29, $count30, $count31, $count32);
+        $array_count['а'] = $array_count['0'];
+        unset($array_count['0']);
+        $array_count['б'] = $array_count['1'];
+        unset($array_count['1']);
+        $array_count['в'] = $array_count['2'];
+        unset($array_count['2']);
+        $array_count['г'] = $array_count['3'];
+        unset($array_count['3']);
+        $array_count['д'] = $array_count['4'];
+        unset($array_count['4']);
+        $array_count['е'] = $array_count['5'];
+        unset($array_count['5']);
+        $array_count['ё'] = $array_count['6'];
+        unset($array_count['6']);
+        $array_count['ж'] = $array_count['7'];
+        unset($array_count['7']);
+        $array_count['з'] = $array_count['8'];
+        unset($array_count['8']);
+        $array_count['и'] = $array_count['9'];
+        unset($array_count['9']);
+        $array_count['й'] = $array_count['10'];
+        unset($array_count['10']);
+        $array_count['к'] = $array_count['11'];
+        unset($array_count['11']);
+        $array_count['л'] = $array_count['12'];
+        unset($array_count['12']);
+        $array_count['м'] = $array_count['13'];
+        unset($array_count['13']);
+        $array_count['н'] = $array_count['14'];
+        unset($array_count['14']);
+        $array_count['о'] = $array_count['15'];
+        unset($array_count['15']);
+        $array_count['п'] = $array_count['16'];
+        unset($array_count['16']);
+        $array_count['р'] = $array_count['17'];
+        unset($array_count['17']);
+        $array_count['с'] = $array_count['18'];
+        unset($array_count['18']);
+        $array_count['т'] = $array_count['19'];
+        unset($array_count['19']);
+        $array_count['у'] = $array_count['20'];
+        unset($array_count['20']);
+        $array_count['ф'] = $array_count['21'];
+        unset($array_count['21']);
+        $array_count['х'] = $array_count['22'];
+        unset($array_count['22']);
+        $array_count['ц'] = $array_count['23'];
+        unset($array_count['23']);
+        $array_count['ч'] = $array_count['24'];
+        unset($array_count['24']);
+        $array_count['ш'] = $array_count['25'];
+        unset($array_count['25']);
+        $array_count['щ'] = $array_count['26'];
+        unset($array_count['26']);
+        $array_count['ь'] = $array_count['27'];
+        unset($array_count['27']);
+        $array_count['ы'] = $array_count['28'];
+        unset($array_count['28']);
+        $array_count['ъ'] = $array_count['29'];
+        unset($array_count['29']);
+        $array_count['э'] = $array_count['30'];
+        unset($array_count['30']);
+        $array_count['ю'] = $array_count['31'];
+        unset($array_count['31']);
+        $array_count['я'] = $array_count['32'];
+        unset($array_count['32']);
         $file_key = 'key.txt';
         $data = serialize($array_count);      // PHP формат сохраняемого значения.
         file_put_contents($file_key, $data);
-       */
+
     }
 
 }
