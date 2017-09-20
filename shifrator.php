@@ -41,7 +41,7 @@ class shifrator
         self::$rand_chislo1=array_flip(self::$rand_chislo1);
     }
 
-    public static function shifrirovanie() {
+    public static function shifrirovanie($text) {
 
         shifrator::randslovo();
         /*
@@ -60,10 +60,12 @@ class shifrator
         /*
          * Здесь будем приводить файл к нижнему регистру
          */
+        /*
         $t = file_get_contents('test.txt');
         $get  = mb_detect_encoding($t, array('utf-8', 'cp1251'));
         $lol = iconv($get,'UTF-8',$t);
-        $lol = mb_strtolower($lol);
+        */
+        $lol = mb_strtolower($text);
         $text1 = preg_split('//u',$lol,-1,PREG_SPLIT_NO_EMPTY); // разделяем текст посимвольно и вставляем в массив
         /*
          * Алгоритм замены букв
@@ -79,11 +81,16 @@ class shifrator
             }
         }
         $text1 = implode($text1);
+        return $text1;
+        /*
         $shifrfile = fopen('encrypted-text.txt', 'w+');
         $text_file = fwrite($shifrfile,$text1);
         fclose($shifrfile);
+        */
     }
 
 }
 
-shifrator::shifrirovanie();
+
+#shifrator::shifrirovanie($text);
+

@@ -44,13 +44,17 @@ class analysis
     private static $count32=0;
 
 
-    public static function analysator()
+    public static function analysator($text)
     {
+        /*
         $t = file_get_contents('test.txt');
         $get  = mb_detect_encoding($t, array('utf-8', 'cp1251'));
         $lol = iconv($get,'UTF-8',$t);
-        $lol = mb_strtolower($lol);
+
         $lol = substr($lol,3);
+        */
+        $lol = $text;
+        $lol = mb_strtolower($lol);
         $kek = preg_replace('/[^абвгдеёжзийклмнопрстуфхцчшщъыьэюя]/','',$lol); // убираем все лишние символы
         $text1 = preg_split('//u',$kek,-1,PREG_SPLIT_NO_EMPTY);
         end($text1);
@@ -338,4 +342,6 @@ class analysis
 
 }
 
-analysis::analysator();
+#$text = "Лол кек чебурек";
+
+#analysis::analysator($text);

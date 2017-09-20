@@ -1,55 +1,68 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: user
- * Date: 10.09.2017
- * Time: 19:49
- */
+require_once 'shifrator.php';
+require_once 'analysis.php';
+require_once 'deshifrator.php';
+?>
 
-/*
+    <html>
+    <head>
+        <title>LABS DB</title>
+        <style>
+            body {
+                background: : #2196f3; /* Цвет фона */
+                color: #fc0; /* Цвет текста */
+            }
+        </style>
+    </head>
+    <body>
 
-$text = fopen('test.txt','a+');
 
-if ($text){
-    while (!feof($text)){
-        $mytext = fgetc($text);
-        $lol[] = $mytext;
-    }
+    <form action="index.php" method="post" enctype="multipart/form-data">
+        <textarea name="text"></textarea>
+        <input type="submit" name="otpr">
+    </form>
+    <!--Import jQuery before materialize.js-->
+
+
+
+    </body>
+
+    </html>
+
+
+
+
+
+
+
+
+
+<?php
+
+if (isset($_POST['otpr'])){
+    $text = $_POST['text'];
+    $lol = shifrator::shifrirovanie($text);// Здесь наш зашифрованный текст
+    echo $lol;
+    analysis::analysator($text);
+    deshifrator::deshifrirovanie($lol);
 }
-else echo "Ошибка при открытии файла";
 
 
-print_r($lol);
-*/
 
-$t = file_get_contents('test.txt');
-$get  = mb_detect_encoding($t, array('utf-8', 'cp1251'));
-$lol = iconv($get,'UTF-8',$t);
-$lol = mb_strtolower($lol);
-$text1 = preg_split('//u',$lol,-1,PREG_SPLIT_NO_EMPTY); // разделяем текст посимвольно и вставляем в массив
+?>
 
-print_r($text1);
 
-/*
-$text = file_get_contents('test.txt');
-$text = mb_convert_encoding($text,'utf-8');
-$text = preg_split('//u',$text,-1,PREG_SPLIT_NO_EMPTY); // разделяем текст посимвольно и вставляем в массив
-$text1 = array_map('strtolower', $text); // переводит массив в нижний регистр
+<?php
 
-print_r($text1);
-*/
-/*
+if (isset($_POST['otpr'])){
+    $text = $_POST['text'];
 
-if ($text){
-    while (!feof($text)){
-        $mytext = fgetc($text);
-        echo $mytext."<br>";
-    }
+    $lol = shifrator::shifrirovanie($text);// Здесь наш зашифрованный текст
+    echo $lol;
+    #analysis::analysator($text);
+    #deshifrator::deshifrirovanie($lol);
 }
-else echo "Ошибка при открытии файла";
-fclose($text);
 
 
-print_r($lol);
 
-*/
+?>
