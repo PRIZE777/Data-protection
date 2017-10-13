@@ -8,63 +8,87 @@
 
 class encrypted
 {
-    private static $alfavit = array('1' => 'а','2' => 'б','3' => 'в','4' => 'г','5' => 'д','6' => 'е','7' => 'ж','8' => 'з','9' => 'и','10' => 'й','11' => 'к','12' => 'л','13' => 'м','14' => 'н','15' => 'о','16' => 'п','17' => 'р','18' => 'с','19' => 'т','20' => 'у','21' => 'ф','22' => 'х','23' => 'ц','24' => 'ч','25' => 'ш','26' => 'щ','27' => 'ъ','28' => 'ы','29' => 'ь','30' => 'э','31' => 'ю','32' => 'я');
+    private static function degree($a,$b){ // функция для возведения в степень
+        $sum=1;
+        for ($i=0;$i<$b;$i++){
+            $sum*=$a;
+        }
+        return $sum;
+    }
 
-    public static function shifrirovanie($text){
-        $strlower = mb_strtolower($text);
-        $strlower = preg_split('//u',$strlower,-1,PREG_SPLIT_NO_EMPTY);
+    private static function prostoechislo($n){ // функция Эйлера
 
-        /*
-        * Кодируем наш алфавит
-        */
-        foreach ($strlower as $key => $value){
-            foreach (self::$alfavit as $key1 => $value1){
-                if ($value == $value1){
-                    $shifrmass[] = $key1;
-                }
+        $ret = 1;
+        for ($i=2;$i*$i<=$n;++$i){
+            $p = 1;
+            while ($n % $i == 0){
+                $p *= $i;
+                $n /= $i;
             }
+            if (($p/=$i)>=1)
+                $ret *= $p*($i-1);
         }
 
-        /*
-        $prostoe_chislo = 23; // здесь общее число для ключа шифрования
-        $generator = 5; // здесь общее число для ключа шифрования
-        $first_number = 6; // Здесь тайное число первого абонента
-        $second_number = 5; // Здесь тайное число второго абонента
-        $secret = 2; // секретное сообщение
-        $alisa = $generator ** $first_number % $prostoe_chislo;
-        $bob = $generator ** $second_number % $prostoe_chislo;
-
-        $alisa_vicheslyaet = $bob ** $first_number % $prostoe_chislo;
-        $bob_vicheslyaet= $alisa ** $second_number % $prostoe_chislo;
-
-        echo "Алисен секретный ключ: $alisa <br>";
-        echo "Бобов секретный ключ: $bob <br>";
-        echo "Алиса расшифровывает ключ Боба: $alisa_vicheslyaet <br>";
-        echo "Боб расшифровывает клю Алисы: $bob_vicheslyaet <br>";
-        */
-        $g = 5;
-        $p = 23;
-        $chislo_alisi= 7;
-        $chislo_boba = 3;
-
-        $a = $g ** $chislo_alisi % $p; // Передаем бобу
-        $b = $g ** $chislo_boba % $p; // Передаем алисе
-
-        echo $a." | ".$b."<br>";
-
-        $lol = $b ** $chislo_alisi % $p;
-        $lol1 = $a ** $chislo_boba % $p;
-
-        echo $lol." | ".$lol1;
-
-
-
-
+        return --$n ? $n*$ret : $ret;
 
     }
 
+    public static function primitiveroot($g,$m){
+        $phi=self::prostoechislo($m);
+        $arr[] = $phi;
+        $size = 0;
+        $b = true;
+        for ($i=0;($i<=$phi-1 && $b);$i++){
+            $num=(self::degree($g,$i)%$m);
+            for ($u=0;$u<$size;$u++){
+                if ($arr[$u] == $num){
+                    $b = false;
+                }
+            }
+            $arr[$size]=$num;
+            $size++;
+        }
+        #echo "Данное число ".$g." Является примитивным корнем по модулю ".$m.": ".$b;
+        return $b;
+    }
+
+    public static function mod($a,$b,$c){
+
+    }
+
+    public static function test($a,$b,$g='5',$p='23'){
+       # $g = 5;
+        #$p = 23;
+        if (self::primitiveroot($g,$p) == true){
+
+            if ($a <= 10 && $b <= 10){
+
+
+                $A = $g ** $a % $p; // Передаем бобу
+                echo "Передаём второму собеседнику число $A <br>";
+                $B = $g ** $b % $p; // Передаем алисе
+                echo "Передаём первому собеседнику число $B <br>";
+                $lol = $B ** $a % $p;
+                echo "Первый собеседник получает число $lol <br>";
+                $lol1 = $A ** $b % $p;
+                echo "Второй собеседник получает число $lol1 <br>";
+            }
+
+            else
+                echo "Выбирите другие секретные числа!";
+
+
+        }
+        else
+            echo "Выбирите другие общие числа!";
+
+    }
+
+
 }
 
-$test="Это тествоый текст!";
 
-encrypted::shifrirovanie($test);
+
+echo encrypted::test(5,6);
+
+#echo encrypted::primitiveroot(7,11);
