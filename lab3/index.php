@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/custom-theme/jquery-ui-1.10.0.custom.css" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
