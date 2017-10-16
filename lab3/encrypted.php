@@ -52,26 +52,38 @@ class encrypted
         return $b;
     }
 
-    public static function mod($a,$b,$c){
-
-    }
-
-    public static function test($a,$b,$g='5',$p='23'){
+    public static function test($a,$b,$c,$d,$e,$f,$g='5',$p='23'){
        # $g = 5;
         #$p = 23;
         if (self::primitiveroot($g,$p) == true){
 
-            if ($a <= 10 && $b <= 10){
+            if ($a <= 10 && $b <= 10 && $c <=10 && $d <= 10 && $e <= 10 && $f <= 10){
 
 
                 $A = $g ** $a % $p; // Передаем бобу
                 echo "Передаём второму собеседнику число $A <br>";
                 $B = $g ** $b % $p; // Передаем алисе
                 echo "Передаём первому собеседнику число $B <br>";
+                $C = $g ** $c % $p; // Передаем бобу
+                echo "Передаём второму собеседнику число $C <br>";
+                $D = $g ** $d % $p; // Передаем алисе
+                echo "Передаём первому собеседнику число $D <br>";
+                $E = $g ** $e % $p; // Передаем бобу
+                echo "Передаём второму собеседнику число $E <br>";
+                $F = $g ** $f % $p; // Передаем алисе
+                echo "Передаём первому собеседнику число $F <br>";
                 $lol = $B ** $a % $p;
                 echo "Первый собеседник получает число $lol <br>";
                 $lol1 = $A ** $b % $p;
                 echo "Второй собеседник получает число $lol1 <br>";
+                $lol2 = $D ** $a % $p;
+                echo "Первый собеседник получает число $lol2 <br>";
+                $lol3 = $C ** $b % $p;
+                echo "Второй собеседник получает число $lol3 <br>";
+                $lol4 = $F ** $a % $p;
+                echo "Первый собеседник получает число $lol4 <br>";
+                $lol5 = $E ** $b % $p;
+                echo "Второй собеседник получает число $lol5 <br>";
             }
 
             else
@@ -89,6 +101,6 @@ class encrypted
 
 
 
-echo encrypted::test(5,6);
+echo encrypted::test(5,6,6,5,7,8);
 
 #echo encrypted::primitiveroot(7,11);
