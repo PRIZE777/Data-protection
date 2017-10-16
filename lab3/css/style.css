@@ -1,0 +1,22 @@
+body{
+    background: url("../img/dark-triangles.png");
+    color: white;
+}
+
+.maine {
+    margin-top: 100px;
+}
+.maine1 {
+    margin-top: 20px;
+}
+.fon {
+    background: rgba(195,193,193,0.4);
+}
+
+.marg-bot {
+    margin-bottom: 10px;
+}
+
+input{
+    color: red;
+}

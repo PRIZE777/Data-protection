@@ -76,14 +76,15 @@ class encrypted
                 echo "Первый собеседник получает число $lol <br>";
                 $lol1 = $A ** $b % $p;
                 echo "Второй собеседник получает число $lol1 <br>";
-                $lol2 = $D ** $a % $p;
+                $lol2 = $D ** $c % $p;
                 echo "Первый собеседник получает число $lol2 <br>";
-                $lol3 = $C ** $b % $p;
+                $lol3 = $C ** $d % $p;
                 echo "Второй собеседник получает число $lol3 <br>";
-                $lol4 = $F ** $a % $p;
+                $lol4 = $F ** $e % $p;
                 echo "Первый собеседник получает число $lol4 <br>";
-                $lol5 = $E ** $b % $p;
+                $lol5 = $E ** $f % $p;
                 echo "Второй собеседник получает число $lol5 <br>";
+                echo "Общий секретный ключ: $lol $lol2 $lol4 <br>";
             }
 
             else
@@ -95,12 +96,24 @@ class encrypted
             echo "Выбирите другие общие числа!";
 
     }
+    /*
+    public static function vivod(){
+        setcookie("Num1", $_POST['num1'], time()-3600);
+        setcookie("Num2", $_POST['num2'], time()-3600);
+        setcookie("Num3", $_POST['num3'], time()-3600);
+        setcookie("Num4", $_POST['num4'], time()-3600);
+        setcookie("Num5", $_POST['num5'], time()-3600);
+        setcookie("Num6", $_POST['num6'], time()-3600);
+        setcookie("Num7", $_POST['num7'], time()-3600);
+        setcookie("Num8", $_POST['num8'], time()-3600);
+    }
+    */
 
 
 }
 
 
 
-echo encrypted::test(5,6,6,5,7,8);
+# echo encrypted::test(5,6,6,5,7,8);
 
 #echo encrypted::primitiveroot(7,11);
