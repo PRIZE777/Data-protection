@@ -9,7 +9,7 @@ setcookie("Num6", $_POST['num6'], time()-3600);
 setcookie("Num7", $_POST['num7'], time()-3600);
 setcookie("Num8", $_POST['num8'], time()-3600);
 */
-require ('encrypted.php');?>
+require_once ('encrypted.php');?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -69,28 +69,39 @@ require ('encrypted.php');?>
 
 <div class="container-fluid maine1 marg-bot">
     <div class="col-md-4 col-md-offset-4 fon">
-        <h4>Лог событий: </h4>
+        <div class="col-md-6 marg-bot" style="margin-top: 10px;">
+        <div class="col-md-10 col-md-offset-1"> <form method="post" action="index.php">
+            <input type="submit" name="otp4" value="Вывести Лог" class="btn btn-danger">
+        </form></div>
+        </div>
+        <div class="col-md-6 marg-bot" style="margin-top: 10px;">
+            <div class="col-md-10 col-md-offset-1"> <a href="index.php" class="btn btn-danger">Очистить Лог</a></div>
+    </div>
         <?php
-        @session_start();
-        $g= $_SESSION['Num7'];
-        $p= $_SESSION['Num8'];
-        $a= $_SESSION['Num1'];
-        $b= $_SESSION['Num2'];
-        $c= $_SESSION['Num3'];
-        $d= $_SESSION['Num4'];
-        $e= $_SESSION['Num5'];
-        $f= $_SESSION['Num6'];
-        if ( gettype($g)=='NULL' ||  gettype($g)=='NULL'){
-            $g=5;
-            $p=23;
-        }
-        if (isset($a,$b,$c,$d,$e,$f)){
-            if ($g=='NULL' || $p=='NULL'){
-                $g='5';
-                $p='23';
+        if (isset($_POST['otp4'])) {
+            @session_start();
+            $g = $_SESSION['Num7'];
+            $p = $_SESSION['Num8'];
+            $a = $_SESSION['Num1'];
+            $b = $_SESSION['Num2'];
+            $c = $_SESSION['Num3'];
+            $d = $_SESSION['Num4'];
+            $e = $_SESSION['Num5'];
+            $f = $_SESSION['Num6'];
+
+            if ($g == 0 || $p == 0) {
+                $g = 5;
+                $p = 23;
             }
-            echo encrypted::test($a,$b,$c,$d,$e,$f,$g,$p);
-            session_unset();
+            if (gettype($g) == 'NULL' || gettype($g) == 'NULL') {
+                $g = 5;
+                $p = 23;
+            }
+            if (isset($a, $b, $c, $d, $e, $f)) {
+                if ($a != null || $d != null) {
+                    encrypted::test($a, $b, $c, $d, $e, $f, $g, $p);
+                }
+            }
         }
         ?>
     </div>

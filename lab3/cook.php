@@ -5,9 +5,7 @@
  * Date: 16.10.2017
  * Time: 14:09
  */
-
 session_start();
-
 if (isset($_POST['otp1'])){
     $_SESSION['Num1']=$_POST['num1'];
     $_SESSION['Num2']=$_POST['num2'];

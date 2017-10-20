@@ -96,18 +96,10 @@ class encrypted
             echo "Выбирите другие общие числа!";
 
     }
-    /*
-    public static function vivod(){
-        setcookie("Num1", $_POST['num1'], time()-3600);
-        setcookie("Num2", $_POST['num2'], time()-3600);
-        setcookie("Num3", $_POST['num3'], time()-3600);
-        setcookie("Num4", $_POST['num4'], time()-3600);
-        setcookie("Num5", $_POST['num5'], time()-3600);
-        setcookie("Num6", $_POST['num6'], time()-3600);
-        setcookie("Num7", $_POST['num7'], time()-3600);
-        setcookie("Num8", $_POST['num8'], time()-3600);
+
+    public static function sessin(){
+
     }
-    */
 
 
 }
