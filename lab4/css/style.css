@@ -1,7 +1,26 @@
 .marg-top{
-    margin-top: 250px;
+    margin-top: 50px;
+}
+
+.marg-top10{
+    margin-top: 10px;
+}
+
+.fon{
+    background-color: rgba(255, 0, 0, 0.5);
+    color: white;
+    font-size: 15px;
 }
 
 body{
     background-image: url("../fon.jpg");
+    background-size: cover; /* Фон занимает всю доступную площадь */
+}
+
+.btn-color{
+    background-color: #0f69e1;
+}
+
+.marg-bot10{
+    margin-bottom: 10px;
 }

@@ -22,7 +22,24 @@
 <body>
 
 <div class="container marg-top">
-    <div class="col-md-6 col-md-offset-3">TEST</div>
+    <div class="row">
+    <div class="col-md-6 col-md-offset-3 fon text-center">
+        <h1>ШИФРОВАНИЕ RSA</h1>
+        <h4>Введите шифруемое число:</h4>
+        <form action="index.php" method="post">
+            <input type="number" name="numb">
+            <br>
+            <input class="marg-top10 btn btn-success btn-color" type="submit" name="otp">
+        </form>
+        <h3>Лог:</h3>
+            <?php if (isset($_POST['otp'])){
+                $number = $_POST['numb'];
+                rsashifr::main($number);
+            }?>
+        <a href="index.php" class="marg-top10 btn btn-success btn-color marg-bot10" >Очистить лог</a>
+
+    </div>
+    </div>
 </div>
 
 
