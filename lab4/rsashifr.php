@@ -11,7 +11,7 @@ class rsashifr
     private static function prostoe(){ // метод генерации простого числа
         while (1){
             $z=0;
-            $a=1+mt_rand(1,20);
+            $a=1+mt_rand(1,25);
             for ($i=2;$i<$a;$i++){
                if ($a%$i==1)
                    continue;
@@ -82,6 +82,6 @@ class rsashifr
 
 }
 
-$test = 1;
+/*$test = 2;
 
-rsashifr::main($test);
+rsashifr::main($test);*/
