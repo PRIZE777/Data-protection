@@ -38,7 +38,7 @@ class rsashifr
         }
     }
 
-    public static function main(){
+    public static function main($P){
             $p = self::prostoe(); // певрое простое число
             $q = self::prostoe(); // второе простое число
             $n = $p * $q;
@@ -65,29 +65,23 @@ class rsashifr
             echo $p." | ".$q."<br>";
             echo $fi."<br>";
             echo "{ $test, $n } - это открытый ключ! <br>";
-           /* $test1=self::evklid($test,$fi);
-            echo "{ $test1, $n } - это закрытый ключ! <br>";
-
-            $P = 19;
-
-            $shifr = ($P**5)%21;
-            echo $shifr."-Зашифрованное сообщение <br>";
-
-            $rasshifr = ($shifr**17)%21;
-
-            echo $rasshifr;
-            echo " p=7 | q=3"."<br>";
-            echo "fi = 12"."<br>";
-            echo "{ 5, 21 } - это открытый ключ! <br>";*/
-            $d=1;
+            $d=1; // генерация закрытой экспоненты
             while(($test*$d)%$fi!=1){
                 $d++;
             }
-            echo $d."-это закрытый ключ <br>";
+            echo "{ $d, $n } - это закрытый ключ! <br>";
+
+            $shifr = ($P**$test)%$n;
+            echo $shifr."- Зашифрованный текст <br>";
+
+            $rasshifr = ($shifr**$d)%$n;
+            echo $rasshifr;
 
 
     }
 
 }
 
-rsashifr::main();
+$test = 1;
+
+rsashifr::main($test);
